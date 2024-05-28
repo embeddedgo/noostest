@@ -1,0 +1,9 @@
+ARM MPS2 with AN500 FPGA image for Cortex-M7
+
+Memory map:
+
+0x00000000  4 MiB : ZBT SSRAM1    (mirrored at 0x00400000, text)
+0x20000000  4 MiB : ZBT SSRAM 2&3 (mirrored at 0x20400000, runtime alocations)
+0x60000000 16 MiB : PSRAM         (system memory: bss, data, heap)
+
+There are no any behavioral diffferences between all these memory blocks in QEMU.
