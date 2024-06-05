@@ -1,7 +1,3 @@
 #!/bin/sh
 
-export GOTARGET=noostest
-export GOARCH=riscv64
-export GOMEM=0x80000000:32M
-
-emgo build
+GOTARGET=noostest GOARCH=riscv64 emgo build
