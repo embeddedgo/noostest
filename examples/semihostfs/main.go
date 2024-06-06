@@ -73,5 +73,4 @@ func main() {
 	fatalErr("remove", err)
 
 	fmt.Println("Exit")
-	os.Stderr.Close() // graceful exit
 }
