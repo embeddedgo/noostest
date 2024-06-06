@@ -6,9 +6,8 @@ package simple
 
 import "testing"
 
-func TestMul(t *testing.T) {
-	x := 2 * 3 * 4
-	if x != 24 {
-		t.Errorf("2*3*4 = %d; want 24", x)
-	}
+func TestOK(t *testing.T) {
+}
+func TestFail(t *testing.T) {
+	t.Error("deliberate fail")
 }
