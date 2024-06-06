@@ -5,45 +5,21 @@
 package main
 
 import (
-	"embedded/rtos"
 	"fmt"
 	"io"
 	"os"
 
-	"github.com/embeddedgo/fs/semihostfs"
+	_ "github.com/embeddedgo/noostest/init"
 )
-
-func panicErr(what string, err error) {
-	if err != nil {
-		panic(fmt.Sprintf("%s: %v\n", what, err))
-	}
-}
 
 func fatalErr(what string, err error) {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%s: %v\n", what, err)
-		os.Stderr.Close()
+		os.Exit(1)
 	}
 }
 
-func debug(fd int, p []byte) int {
-	n, _ := os.Stderr.Write(p)
-	return n
-}
-
 func main() {
-	fsys := semihostfs.New("SH1", "shdir")
-	rtos.Mount(fsys, "/host")
-
-	var err error
-	os.Stderr, err = os.Open("/host/:stderr")
-	panicErr(":stderr", err)
-	rtos.SetSystemWriter(debug)
-	os.Stdout, err = os.Open("/host/:stdout")
-	fatalErr(":stdout", err)
-	os.Stdin, err = os.Open("/host/:stdin")
-	fatalErr(":stdin", err)
-
 	fmt.Fprintln(os.Stderr, "Hello over stderr!")
 
 	var x float64
