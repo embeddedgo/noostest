@@ -2,4 +2,4 @@
 
 name=$(basename $(pwd))
 
-emgo $name.elf
+emgo $name.elf $@

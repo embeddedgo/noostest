@@ -21,6 +21,7 @@ func fatalErr(what string, err error) {
 
 func main() {
 	fmt.Fprintln(os.Stderr, "Hello over stderr!")
+	fmt.Printf("os.Args: %#v\n\n", os.Args)
 
 	var x float64
 	fmt.Print("Enter a number: ")
