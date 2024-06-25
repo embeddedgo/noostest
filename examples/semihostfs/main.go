@@ -27,7 +27,7 @@ func main() {
 	fmt.Print("Enter a number: ")
 	fmt.Scanf("%g", &x)
 
-	fname := "/host/x.txt"
+	fname := "/x.txt"
 
 	fmt.Println("Writing", x, "to the", fname, "file.")
 	f, err := os.Create(fname)
