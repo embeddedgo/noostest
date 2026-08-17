@@ -1,3 +1,7 @@
 #!/bin/sh
 
-GOTARGET=noostest GOARCH=thumb emgo build $@
+export GOOS=noos
+export GOARCH=thumb
+export GOFLAGS="-tags=noostest '-ldflags=-stripfn=1 -M=0x60000000:16M,0x20000000:4M -F=0x00000000:4M'"
+
+go build $@
