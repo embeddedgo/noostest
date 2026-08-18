@@ -2,7 +2,7 @@
 
 name=$(basename $(pwd))
 
-system='-machine virt -cpu rv64,pmp=false,mmu=false,c=false -smp 2 -m 32'
+system='-machine virt -cpu rv64,pmp=false,mmu=false,c=true -smp 2 -m 32'
 
 opts='-nographic -monitor none -serial none --semihosting-config enable=on,target=native,userspace=on'
 
